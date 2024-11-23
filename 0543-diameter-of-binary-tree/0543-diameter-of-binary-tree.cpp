@@ -14,11 +14,12 @@ public:
     int ans = 0;
     int dfs(TreeNode* root)
     {
-        if(root == NULL) return 0;        
-        int lefttHeight = dfs(root->left);
-        int rightHeight = dfs(root->right);        
-        if(lefttHeight+rightHeight+1 > ans) ans = lefttHeight+rightHeight;        
-        return max(lefttHeight, rightHeight)+1;        
+        if(root == NULL) return 0;
+        int leftHeight = dfs(root->left);
+        int rightHeight = dfs(root->right);
+        if(leftHeight + rightHeight > ans) ans = leftHeight + rightHeight;
+        
+        return max(leftHeight, rightHeight) + 1;
     }
     int diameterOfBinaryTree(TreeNode* root) {     
         dfs(root);
